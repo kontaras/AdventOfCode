@@ -18,7 +18,11 @@ func CalorieCount(foodList string) int {
 
 			sum = 0
 		} else {
-			num, _ := strconv.Atoi(line)
+			num, err := strconv.Atoi(line)
+			if err != nil {
+				panic("Could not parse number " + err.Error())
+			}
+
 			sum += num
 		}
 	}
@@ -41,7 +45,11 @@ func CalorieCountThree(foodList string) int {
 
 			sum = 0
 		} else {
-			num, _ := strconv.Atoi(line)
+			num, err := strconv.Atoi(line)
+			if err != nil {
+				panic("Could not parse number " + err.Error())
+			}
+
 			sum += num
 		}
 	}

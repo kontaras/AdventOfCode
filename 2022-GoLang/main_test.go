@@ -32,3 +32,18 @@ func TestDay01(t *testing.T) {
 		t.Error(actual2)
 	}
 }
+
+func TestDay02(t *testing.T) {
+	input := `A Y
+B X
+C Z`
+	actual := RpsScore(input)
+	if actual != 15 {
+		t.Error(actual)
+	}
+
+	actual2 := RpsPlays(input)
+	if actual2 != 12 {
+		t.Error(actual2)
+	}
+}
