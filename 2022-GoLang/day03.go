@@ -8,10 +8,10 @@ func RucksackPriorityScore(manifest string) int {
 	lines := strings.Split(manifest, "\n")
 	var score int
 	for _, sack := range lines {
-		item_count := len(sack)
-		if item_count > 0 {
-			side1 := sack[:item_count/2]
-			side2 := sack[item_count/2:]
+		itemCount := len(sack)
+		if itemCount > 0 {
+			side1 := sack[:itemCount/2]
+			side2 := sack[itemCount/2:]
 			var items = make(map[byte]byte)
 
 			for i := 0; i < len(side1); i++ {
@@ -22,11 +22,7 @@ func RucksackPriorityScore(manifest string) int {
 				item := side2[i]
 				_, ok := items[item]
 				if ok {
-					if item > 'Z' {
-						score += (int)(item - 'a' + 1)
-					} else {
-						score += (int)(item - 'A' + 27)
-					}
+					score += itemPriority(item)
 
 					break
 				}
@@ -35,4 +31,47 @@ func RucksackPriorityScore(manifest string) int {
 	}
 
 	return score
+}
+
+func GroupBadge(elves string) int {
+	lines := strings.Split(elves, "\n")
+	var score int
+
+	const groupSize = 3
+
+	for i := 0; i+groupSize < len(lines); i += groupSize {
+		group := lines[i : i+groupSize]
+
+		var items = make(map[byte]byte)
+
+		for i := 0; i < len(group[0]); i++ {
+			items[group[0][i]] = 0
+		}
+
+		for _, member := range group[1:] {
+			itemsNew := make(map[byte]byte)
+			for i := 0; i < len(member); i++ {
+				_, ok := items[member[i]]
+				if ok {
+					itemsNew[member[i]] = 0
+				}
+			}
+
+			items = itemsNew
+		}
+
+		for item, _ := range items {
+			score += itemPriority(item)
+		}
+	}
+
+	return score
+}
+
+func itemPriority(item byte) int {
+	if item > 'Z' {
+		return (int)(item - 'a' + 1)
+	} else {
+		return (int)(item - 'A' + 27)
+	}
 }

@@ -18,11 +18,11 @@ func day1() {
 		panic("Could not read input file: " + err.Error())
 	}
 
-	value := CalorieCount(string(file))
+	var value = CalorieCount(string(file))
 	fmt.Printf("Day 1 Part 1: %d\n", value)
 
-	value2 := CalorieCountThree(string(file))
-	fmt.Printf("Day 1 Part 2: %d\n", value2)
+	value = CalorieCountThree(string(file))
+	fmt.Printf("Day 1 Part 2: %d\n", value)
 }
 
 func day2() {
@@ -32,11 +32,11 @@ func day2() {
 		panic("Could not read input file: " + err.Error())
 	}
 
-	value := RpsScore(string(file))
+	var value = RpsScore(string(file))
 	fmt.Printf("Day 2 Part 1: %d\n", value)
 
-	value2 := RpsPlays(string(file))
-	fmt.Printf("Day 2 Part 2: %d\n", value2)
+	value = RpsPlays(string(file))
+	fmt.Printf("Day 2 Part 2: %d\n", value)
 }
 
 func day3() {
@@ -46,6 +46,9 @@ func day3() {
 		panic("Could not read input file: " + err.Error())
 	}
 
-	value := RucksackPriorityScore(string(file))
+	var value = RucksackPriorityScore(string(file))
 	fmt.Printf("Day 3 Part 1: %d\n", value)
+
+	value = GroupBadge(string(file))
+	fmt.Printf("Day 3 Part 2: %d\n", value)
 }

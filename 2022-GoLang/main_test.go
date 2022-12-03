@@ -49,7 +49,7 @@ C Z`
 }
 
 func TestDay03(t *testing.T) {
-	input := `
+	var input = `
 vJrwpWtwJgWrhcsFMMfFFhFp
 jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
 PmmdzqPrVvPwwTWBwg
@@ -57,9 +57,45 @@ wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
 ttgJtRGJQctTZtZT
 CrZsJsPPZsGzwwsLwLmpwMDw
 `
-	actual := RucksackPriorityScore(input)
+	var actual = RucksackPriorityScore(input)
 
 	if actual != 157 {
+		t.Error(actual)
+	}
+
+	input = `vJrwpWtwJgWrhcsFMMfFFhFp
+jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+PmmdzqPrVvPwwTWBwg
+`
+
+	actual = GroupBadge(input)
+
+	if actual != 18 {
+		t.Error(actual)
+	}
+
+	input = `wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+	ttgJtRGJQctTZtZT
+	CrZsJsPPZsGzwwsLwLmpwMDw
+`
+
+	actual = GroupBadge(input)
+
+	if actual != 52 {
+		t.Error(actual)
+	}
+
+	input = `vJrwpWtwJgWrhcsFMMfFFhFp
+jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+PmmdzqPrVvPwwTWBwg
+wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+ttgJtRGJQctTZtZT
+CrZsJsPPZsGzwwsLwLmpwMDw
+`
+
+	actual = GroupBadge(input)
+
+	if actual != 70 {
 		t.Error(actual)
 	}
 }
