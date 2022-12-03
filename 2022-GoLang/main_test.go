@@ -47,3 +47,19 @@ C Z`
 		t.Error(actual2)
 	}
 }
+
+func TestDay03(t *testing.T) {
+	input := `
+vJrwpWtwJgWrhcsFMMfFFhFp
+jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+PmmdzqPrVvPwwTWBwg
+wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+ttgJtRGJQctTZtZT
+CrZsJsPPZsGzwwsLwLmpwMDw
+`
+	actual := RucksackPriorityScore(input)
+
+	if actual != 157 {
+		t.Error(actual)
+	}
+}

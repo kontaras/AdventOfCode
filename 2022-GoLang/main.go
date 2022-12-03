@@ -8,13 +8,14 @@ import (
 func main() {
 	day1()
 	day2()
+	day3()
 }
 
 func day1() {
 	file, err := os.ReadFile("input/day01.txt")
 
 	if err != nil {
-		panic("Could not read input file " + err.Error())
+		panic("Could not read input file: " + err.Error())
 	}
 
 	value := CalorieCount(string(file))
@@ -28,7 +29,7 @@ func day2() {
 	file, err := os.ReadFile("input/day02.txt")
 
 	if err != nil {
-		panic("Could not read input file " + err.Error())
+		panic("Could not read input file: " + err.Error())
 	}
 
 	value := RpsScore(string(file))
@@ -36,4 +37,15 @@ func day2() {
 
 	value2 := RpsPlays(string(file))
 	fmt.Printf("Day 2 Part 2: %d\n", value2)
+}
+
+func day3() {
+	file, err := os.ReadFile("input/day03.txt")
+
+	if err != nil {
+		panic("Could not read input file: " + err.Error())
+	}
+
+	value := RucksackPriorityScore(string(file))
+	fmt.Printf("Day 3 Part 1: %d\n", value)
 }
