@@ -99,3 +99,23 @@ CrZsJsPPZsGzwwsLwLmpwMDw
 		t.Error(actual)
 	}
 }
+
+func TestDay04(t *testing.T) {
+	input := `
+2-4,6-8
+2-3,4-5
+5-7,7-9
+2-8,3-7
+6-6,4-6
+2-6,4-8
+`
+	var actual = OverlappingAssignments(input)
+	if actual != 2 {
+		t.Error(actual)
+	}
+
+	// actual = RpsPlays(input)
+	// if actual != 12 {
+	// 	t.Error(actual)
+	// }
+}

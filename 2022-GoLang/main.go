@@ -9,6 +9,7 @@ func main() {
 	day1()
 	day2()
 	day3()
+	day4()
 }
 
 func day1() {
@@ -51,4 +52,18 @@ func day3() {
 
 	value = GroupBadge(string(file))
 	fmt.Printf("Day 3 Part 2: %d\n", value)
+}
+
+func day4() {
+	file, err := os.ReadFile("input/day04.txt")
+
+	if err != nil {
+		panic("Could not read input file: " + err.Error())
+	}
+
+	var value = OverlappingAssignments(string(file))
+	fmt.Printf("Day 4 Part 1: %d\n", value)
+
+	// value = GroupBadge(string(file))
+	// fmt.Printf("Day 3 Part 2: %d\n", value)
 }
