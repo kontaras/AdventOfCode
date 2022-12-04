@@ -60,7 +60,7 @@ func GroupBadge(elves string) int {
 			items = itemsNew
 		}
 
-		for item, _ := range items {
+		for item := range items {
 			score += itemPriority(item)
 		}
 	}
