@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func OverlappingAssignments(ranges string) int {
+func SubsetAssignments(ranges string) int {
 	lines := strings.Split(ranges, "\n")
 	var overlap int
 	for _, assignment := range lines {
@@ -15,6 +15,27 @@ func OverlappingAssignments(ranges string) int {
 			min2, max2 := parseAssignment(pair[1])
 
 			if (min1 <= min2 && max1 >= max2) || (min1 >= min2 && max1 <= max2) {
+				overlap++
+			}
+		}
+
+	}
+
+	return overlap
+}
+
+func OverlappingAssignments(ranges string) int {
+	lines := strings.Split(ranges, "\n")
+	var overlap int
+	for _, assignment := range lines {
+		pair := strings.Split(assignment, ",")
+		if len(pair) == 2 {
+			min1, max1 := parseAssignment(pair[0])
+			min2, max2 := parseAssignment(pair[1])
+
+			if (min1 >= min2 && min1 <= max2) ||
+				(max1 >= min2 && max1 <= max2) ||
+				(min1 <= min2 && max1 >= max2) {
 				overlap++
 			}
 		}

@@ -61,9 +61,9 @@ func day4() {
 		panic("Could not read input file: " + err.Error())
 	}
 
-	var value = OverlappingAssignments(string(file))
+	var value = SubsetAssignments(string(file))
 	fmt.Printf("Day 4 Part 1: %d\n", value)
 
-	// value = GroupBadge(string(file))
-	// fmt.Printf("Day 3 Part 2: %d\n", value)
+	value = OverlappingAssignments(string(file))
+	fmt.Printf("Day 4 Part 2: %d\n", value)
 }

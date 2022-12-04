@@ -109,13 +109,13 @@ func TestDay04(t *testing.T) {
 6-6,4-6
 2-6,4-8
 `
-	var actual = OverlappingAssignments(input)
+	var actual = SubsetAssignments(input)
 	if actual != 2 {
 		t.Error(actual)
 	}
 
-	// actual = RpsPlays(input)
-	// if actual != 12 {
-	// 	t.Error(actual)
-	// }
+	actual = OverlappingAssignments(input)
+	if actual != 4 {
+		t.Error(actual)
+	}
 }
