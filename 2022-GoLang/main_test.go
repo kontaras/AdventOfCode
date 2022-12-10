@@ -142,3 +142,55 @@ move 1 from 1 to 2
 		t.Error(actual)
 	}
 }
+
+func TestDay06(t *testing.T) {
+	var actual = FindPacketStart("mjqjpqmgbljsphdztnvjfqwrcgsmlb")
+	if actual != 7 {
+		t.Error(actual)
+	}
+
+	actual = FindPacketStart("bvwbjplbgvbhsrlpgdmjqwftvncz")
+	if actual != 5 {
+		t.Error(actual)
+	}
+
+	actual = FindPacketStart("nppdvjthqldpwncqszvftbrmjlhg")
+	if actual != 6 {
+		t.Error(actual)
+	}
+
+	actual = FindPacketStart("nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg")
+	if actual != 10 {
+		t.Error(actual)
+	}
+
+	actual = FindPacketStart("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw")
+	if actual != 11 {
+		t.Error(actual)
+	}
+
+	actual = FindMessageStart("mjqjpqmgbljsphdztnvjfqwrcgsmlb")
+	if actual != 19 {
+		t.Error(actual)
+	}
+
+	actual = FindMessageStart("bvwbjplbgvbhsrlpgdmjqwftvncz")
+	if actual != 23 {
+		t.Error(actual)
+	}
+
+	actual = FindMessageStart("nppdvjthqldpwncqszvftbrmjlhg")
+	if actual != 23 {
+		t.Error(actual)
+	}
+
+	actual = FindMessageStart("nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg")
+	if actual != 29 {
+		t.Error(actual)
+	}
+
+	actual = FindMessageStart("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw")
+	if actual != 26 {
+		t.Error(actual)
+	}
+}

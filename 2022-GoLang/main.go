@@ -11,6 +11,7 @@ func main() {
 	day3()
 	day4()
 	day5()
+	day6()
 }
 
 func day1() {
@@ -81,4 +82,18 @@ func day5() {
 
 	value = CrateStack2(string(file))
 	fmt.Printf("Day 5 Part 2: '%s'\n", value)
+}
+
+func day6() {
+	file, err := os.ReadFile("input/day06.txt")
+
+	if err != nil {
+		panic("Could not read input file: " + err.Error())
+	}
+
+	var value = FindPacketStart(string(file))
+	fmt.Printf("Day 6 Part 1: %d\n", value)
+
+	value = FindMessageStart(string(file))
+	fmt.Printf("Day 6 Part 2: %d\n", value)
 }
