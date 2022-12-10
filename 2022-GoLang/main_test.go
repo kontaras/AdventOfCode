@@ -119,3 +119,26 @@ func TestDay04(t *testing.T) {
 		t.Error(actual)
 	}
 }
+
+func TestDay05(t *testing.T) {
+	input := `
+    [D]    
+[N] [C]    
+[Z] [M] [P]
+ 1   2   3 
+
+move 1 from 2 to 1
+move 3 from 1 to 3
+move 2 from 2 to 1
+move 1 from 1 to 2
+`
+	var actual = CrateStack(input)
+	if actual != "CMZ" {
+		t.Error(actual)
+	}
+
+	actual = CrateStack2(input)
+	if actual != "MCD" {
+		t.Error(actual)
+	}
+}

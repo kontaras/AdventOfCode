@@ -10,6 +10,7 @@ func main() {
 	day2()
 	day3()
 	day4()
+	day5()
 }
 
 func day1() {
@@ -66,4 +67,18 @@ func day4() {
 
 	value = OverlappingAssignments(string(file))
 	fmt.Printf("Day 4 Part 2: %d\n", value)
+}
+
+func day5() {
+	file, err := os.ReadFile("input/day05.txt")
+
+	if err != nil {
+		panic("Could not read input file: " + err.Error())
+	}
+
+	var value = CrateStack(string(file))
+	fmt.Printf("Day 5 Part 1: '%s'\n", value)
+
+	value = CrateStack2(string(file))
+	fmt.Printf("Day 5 Part 2: '%s'\n", value)
 }
