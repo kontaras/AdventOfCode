@@ -12,6 +12,7 @@ func main() {
 	day4()
 	day5()
 	day6()
+	day07()
 }
 
 func day1() {
@@ -96,4 +97,18 @@ func day6() {
 
 	value = FindMessageStart(string(file))
 	fmt.Printf("Day 6 Part 2: %d\n", value)
+}
+
+func day07() {
+	file, err := os.ReadFile("input/day07.txt")
+
+	if err != nil {
+		panic("Could not read input file: " + err.Error())
+	}
+
+	var value = DirsToDelete(string(file))
+	fmt.Printf("Day 7 Part 1: %d\n", value)
+
+	value = FindOptimalDelete(string(file))
+	fmt.Printf("Day 7 Part 2: %d\n", value)
 }

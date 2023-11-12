@@ -1,9 +1,5 @@
 package main
 
-import (
-// "strings"
-)
-
 func FindPacketStart(signal string) int {
 	var i = 3
 	var one byte
