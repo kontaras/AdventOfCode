@@ -25,5 +25,5 @@ func main() {
 	if err != nil {
 		panic("Could not read input file: " + err.Error())
 	}
-	fmt.Println("Day 3:", Day03Part1(string(file))) //, Day02Part2(string(file)))
+	fmt.Println("Day 3:", Day03Part1(string(file)), Day03Part2(string(file)))
 }

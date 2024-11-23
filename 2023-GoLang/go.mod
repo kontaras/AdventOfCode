@@ -1,6 +1,6 @@
 module github.com/kontaras/AdventOfCode/2023-GoLang
 
-go 1.21.4
+go 1.23.3
 
 require (
 	github.com/onsi/ginkgo/v2 v2.13.2
