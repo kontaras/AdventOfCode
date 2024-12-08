@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"math"
 	"sort"
 	"strconv"
@@ -9,6 +8,8 @@ import (
 )
 
 type Day01 struct{}
+
+var _ Day = Day01{}
 
 // InputPath implements Day.
 func (d Day01) InputPath() string {
@@ -21,7 +22,7 @@ func (d Day01) Part1(input string) (int, error) {
 	if err != nil {
 		return 0, err
 	}
-	diffs := d.Diffences(left, right)
+	diffs := d.Differences(left, right)
 
 	sum := 0
 	for _, num := range diffs {
@@ -52,7 +53,7 @@ func (d Day01) SplitLists(lines []string) ([]int, []int, error) {
 	return left, right, nil
 }
 
-func (d Day01) Diffences(left, right []int) []int {
+func (d Day01) Differences(left, right []int) []int {
 	diffs := []int{}
 	sort.Ints(left)
 	sort.Ints(right)
@@ -63,8 +64,29 @@ func (d Day01) Diffences(left, right []int) []int {
 }
 
 // Part2 implements Day.
-func (d Day01) Part2(string) (int, error) {
-	return 0, fmt.Errorf("Unimplemented")
+func (d Day01) Part2(input string) (int, error) {
+	left, right, err := d.SplitLists(SplitInput(input))
+	if err != nil {
+		return 0, err
+	}
+
+	sum := 0
+	for _, i := range d.similarityScore(left, right) {
+		sum += i
+	}
+
+	return sum, nil
 }
 
-var _ Day = Day01{}
+func (d Day01) similarityScore(left, right []int) []int {
+	counts := map[int]int{}
+	for _, i := range right {
+		counts[i] += 1
+	}
+
+	var scores []int
+	for _, i := range left {
+		scores = append(scores, i*counts[i])
+	}
+	return scores
+}
