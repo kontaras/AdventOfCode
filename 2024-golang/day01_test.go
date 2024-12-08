@@ -17,7 +17,6 @@ var _ = Describe("Day01", func() {
 	`
 
 	Context("Part 1", func() {
-
 		It("should calculate differences", func() {
 			left, right, err := underTest.SplitLists(SplitInput(input))
 			Expect(err).To(BeNil())

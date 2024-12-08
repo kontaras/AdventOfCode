@@ -26,5 +26,7 @@ var _ = Describe("All days", func() {
 		if answer2 != -1 {
 			Expect(day.Part2(input)).To(Equal(answer2))
 		}
-	}, Entry("01", Day01{}, 765748, -1))
+	},
+		Entry("01", Day01{}, 765748, 27732508),
+		Entry("02", Day02{}, 236, -1))
 })
