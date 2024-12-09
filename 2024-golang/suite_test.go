@@ -28,5 +28,5 @@ var _ = Describe("All days", func() {
 		}
 	},
 		Entry("01", Day01{}, 765748, 27732508),
-		Entry("02", Day02{}, 236, -1))
+		Entry("02", Day02{}, 236, 308))
 })
